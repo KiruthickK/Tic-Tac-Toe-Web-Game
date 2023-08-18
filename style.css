@@ -1,0 +1,8 @@
+tr, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+td{
+    min-width: 100px;
+    height: 100px;
+}
