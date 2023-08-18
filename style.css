@@ -2,6 +2,9 @@ tr, td{
     border: 1px solid black;
     border-collapse: collapse;
 }
+table{
+    margin-top: 100px;
+}
 td{
     min-width: 100px;
     height: 100px;
