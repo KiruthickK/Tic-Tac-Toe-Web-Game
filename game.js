@@ -7,11 +7,15 @@ function getRandomNumber(min, max) {
 }
 let board = [];
 function initializeGame() {
-    board = []
-    for (var i = 0; i < 3; i++) {
-        let inner = ['-','-','-'];
-        board.push(inner);
-    }
+    return new Promise(resolve => {
+        board = []
+        for (var i = 0; i < 3; i++) {
+            let inner = ['-','-','-'];
+            board.push(inner);
+        }
+        console.log(board)
+        resolve();
+    });
 }
 function isPositionValid(row, col, player){
     if(board[row][col] != '-' && player == 'o'){
