@@ -24,9 +24,11 @@ function isPositionValid(row, col, player){
             alert('Position already occupied');
             result = false;
             resolve(result);
+            return;
         }else if(board[row][col] != '-'){
             result = false;
             resolve(result);
+            return;
         }
         board[row][col] = player;
         resolve(result);
