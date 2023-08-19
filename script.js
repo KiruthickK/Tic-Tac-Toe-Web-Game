@@ -39,21 +39,21 @@ async function cellClicked(id){
     }).catch(err => {
         console.log(err);
     });
-    if(isPositionValid(+rowcol[0], +rowcol[1], 'o')){
+    if(await isPositionValid(+rowcol[0], +rowcol[1], 'x')){
         document.getElementById(id).innerHTML = x_mark;
         console.log(board);
-        if(isGameOver('o')){
-            document.getElementById(id).innerHTML = x_mark;
+        if(await isGameOver('x')){
+            // document.getElementById(id).innerHTML = x_mark;
             alert("Yayy!, you won");
             return;
         }
     }else{
         return;
     }
-    itsComputerMove(o_mark, id);
+    await itsComputerMove(o_mark, id);
     console.log(board);
-    if(isGameOver('x')){
-        document.getElementById(id).innerHTML = o_mark;
+    if(await isGameOver('o')){
+        // document.getElementById(id).innerHTML = o_mark;
         alert("Hahah I won!");
         return;
     }
