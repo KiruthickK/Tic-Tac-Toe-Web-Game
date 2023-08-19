@@ -1,4 +1,5 @@
 window.onload = (() => {
+    alert('This game is not developed completely, it have bugs and we are making effort to fix it. Thanks for playing');
     createActiveListeners();
     initializeGame();
 })
