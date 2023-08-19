@@ -7,23 +7,24 @@ function getRandomNumber(min, max) {
 }
 let board = [];
 function initializeGame() {
-    console.log(board)
     board = []
     for (var i = 0; i < 3; i++) {
         let inner = ['-','-','-'];
         board.push(inner);
-        console.log(getRandomNumber(min, max));
     }
 }
-function isPositionValid(row, col){
-    if(board[row][col] != '-'){
+function isPositionValid(row, col, player){
+    if(board[row][col] != '-' && player == 'o'){
         alert('Position already occupied');
         return false;
+    }else if(board[row][col] != '-'){
+        return false;
     }
-    board[row][col] = 'o';
+    board[row][col] = player;
     return true;
 }
 function isGameOver(player){
+    console.log("Hell")
     let result = true;
     // row wise check
     for(var i=0; i<=max; i++){
@@ -35,6 +36,7 @@ function isGameOver(player){
         }
     }
     if(result){
+        alert("you won !")
         return result;
     }
     result = true;
@@ -48,20 +50,23 @@ function isGameOver(player){
         }
     }
     if(result){
+        alert("you won !")
         return result;
     }
     //diagonal check
     //as of now for simplicity manually i have made this, will change to like formula in the future
     if(board[0][0] == player && board[1][1] == player && board[2][2] == player){
-        return false;
+        return true;
     }
     if(board[2][0] == player && board[1][1] == player && board[0][2] == player){
         return true;
     }
     return false;
 }
-function itsComputerMove(){
-    while(true){
-        
+function itsComputerMove(o_mark){
+    let r = 0, c = 0;
+    while(!isPositionValid(r = getRandomNumber(min, max), c = getRandomNumber(min, max), 'x')){
+        // simply running until getting a free space to fill for computer
     }
+    document.getElementById('td-'+r+'-'+c).innerHTML = o_mark;
 }
